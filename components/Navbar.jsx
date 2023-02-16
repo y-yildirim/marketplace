@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import images from '../assets';
+import Button from './Button';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const menuItems = ['Explore NFTs', 'Listed NFTs', 'My NFTs'];
-
   const generateLink = (i) => {
     switch (i) {
       case 0: return '/';
@@ -17,7 +17,6 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
       default: return '/';
     }
   };
-
   return (
     <ul className={`list-none flexCenter flex-row ${isMobile && 'flex-col h-full'}`}>
       {menuItems.map((item, i) => (
@@ -38,6 +37,31 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
         </li>
       ))}
     </ul>
+  );
+};
+
+const ButtonGroup = ({ setActive, router }) => {
+  const hasConnected = false;
+
+  return hasConnected ? (
+    <div className="flexCenter">
+      <Button
+        btnName="Create"
+        btnType="primary"
+        classStyles="mx-2 rounded-xl"
+        handleClick={() => {
+          setActive('');
+          router.push('/create-nft');
+        }}
+      />
+    </div>
+  ) : (
+    <Button
+      btnName="Connect"
+      btnType="outline"
+      classStyles="mx-2 rounded-lg"
+      handleClick={() => { }}
+    />
   );
 };
 
@@ -124,6 +148,9 @@ const Navbar = () => {
           <ul className="list-none flexCenter flex-row">
             <MenuItems active={active} setActive={setActive} />
           </ul>
+          <div className="ml-4">
+            <ButtonGroup setActive={setActive} router={router} />
+          </div>
         </div>
       </div>
 
@@ -156,6 +183,9 @@ const Navbar = () => {
           <div className="fixed inset-0 top-65 dark:bg-nft-dark bg-white z-10 nav-h flex justify-between flex-col">
             <div className="flex-1 p-4">
               <MenuItems active={active} setActive={setActive} isMobile setIsOpen={setIsOpen} />
+            </div>
+            <div className="p-4 border-t dark:border-nft-black-1 border-nft-gray-1">
+              <ButtonGroup setActive={setActive} router={router} />
             </div>
           </div>
         )}
