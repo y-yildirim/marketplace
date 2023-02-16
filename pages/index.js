@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Home = () => (
   <div>
     <h1 className="text-3xl font-bold underline">
@@ -6,4 +8,4 @@ const Home = () => (
   </div>
 );
 
-export default Home();
+export default Home;
