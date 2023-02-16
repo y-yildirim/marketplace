@@ -160,8 +160,8 @@ const Navbar = () => {
             <Image
               src={images.menu}
               objectFit="contain"
-              width={25}
-              height={25}
+              width={32}
+              height={32}
               alt="menu"
               onClick={() => setIsOpen(!isOpen)}
               className={theme === 'light' ? 'filter invert' : undefined}
@@ -171,8 +171,8 @@ const Navbar = () => {
             <Image
               src={images.cross}
               objectFit="contain"
-              width={20}
-              height={20}
+              width={32}
+              height={32}
               alt="close"
               onClick={() => setIsOpen(!isOpen)}
               className={theme === 'light' ? 'filter invert' : undefined}
