@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="flex flex-row sm:mt-4">
             {[images.instagram, images.twitter, images.telegram, images.discord].map((image, index) => (
               <div className="mx-2 cursor-pointer" key={`image ${index}`}>
-                <Image src={image} key={index} objectFit="contain" width={32} height={32} alt="social" className={theme === 'dark' && 'filter invert'} />
+                <Image src={image} key={index} objectFit="contain" width={32} height={32} alt="social" className={theme === 'dark' ? 'filter invert' : undefined} />
               </div>
             ))}
           </div>
